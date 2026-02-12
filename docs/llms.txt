@@ -1,0 +1,35 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> {{ site.description }}
+
+## About This Repository
+
+This documentation repository contains information about {{ site.github.project_title }}. This file is designed to help AI assistants better understand the structure and purpose of this documentation.
+
+## Main Documentation Sections
+
+{% for page in site.pages %}
+{% if page.title and page.url != "/llms.txt" and page.url != "/sitemap.xml" %}
+- [{{ page.title }}]({{ site.url }}{{ site.baseurl }}{{ page.url }}){% if page.description %}: {{ page.description }}{% endif %}
+{% endif %}
+{% endfor %}
+
+## Recommended Starting Points
+
+- Documentation Home: {{ site.url }}{{ site.baseurl }}/
+{% if site.github.repository_url %}
+- Source Code: {{ site.github.repository_url }}
+{% endif %}
+
+## Additional Resources
+
+{% if site.github %}
+- Repository Owner: {{ site.github.owner_name }}
+- Repository Name: {{ site.github.repository_name }}
+{% endif %}
+
+Last updated: {{ site.time | date: "%Y-%m-%d" }}

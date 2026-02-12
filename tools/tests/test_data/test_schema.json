@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Test Schema",
+  "description": "Simplified schema for testing schema_validator.py",
+  "type": "object",
+  "required": [
+    "layout",
+    "description",
+    "topic_type"
+  ],
+  "properties": {
+    "layout": {
+      "type": "string",
+      "enum": ["default", "page", "post"]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200
+    },
+    "topic_type": {
+      "type": "string",
+      "enum": ["reference", "tutorial", "guide", "concept"]
+    },
+    "nav_order": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "test": {
+      "type": "object",
+      "required": ["testable"],
+      "properties": {
+        "testable": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "test_apps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "server_url": {
+          "type": "string"
+        },
+        "local_database": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

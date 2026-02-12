@@ -1,0 +1,16 @@
+Ctrl
+curl
+Git
+GitHub
+GitHub Desktop
+Markdown
+MarkdownLint
+Postman
+pytest
+[R|r]ebased?
+[R|r]ebasing
+[R|r]epos?
+To-Do Service
+trackpad
+VS Code
+Windows

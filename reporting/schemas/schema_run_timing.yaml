@@ -1,0 +1,80 @@
+# Schema for workflow run timing data (denormalized)
+# Use with list-run-timing or get-run-timing commands
+#
+# This schema expands the jobs array so each job becomes a row,
+# with run context repeated for each job.
+#
+# Example usage:
+#   workflow-data.py list-run-timing <owner> <repo> --days 7 \
+#     --format csv --schema schema_run_timing.yaml
+
+run_timing:
+  description: "Workflow run timing with job details (denormalized)"
+  mode: denormalized
+  expand: jobs
+  format: csv
+  
+  fields:
+    # Run identification
+    - source: run_id
+      column: run_id
+      type: integer
+    
+    - source: run_name
+      column: workflow_name
+      type: string
+    
+    - source: run_number
+      column: run_number
+      type: integer
+    
+    # Run timing
+    - source: run_created_at
+      column: run_created_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: run_updated_at
+      column: run_updated_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: run_duration_seconds
+      column: run_duration_seconds
+      type: float
+    
+    # Run status
+    - source: run_status
+      column: run_status
+      type: string
+    
+    - source: run_conclusion
+      column: run_conclusion
+      type: string
+    
+    # Actor
+    - source: actor.login
+      column: actor
+      type: string
+    
+    # Job details (from expanded jobs array)
+    - source: jobs.name
+      column: job_name
+      type: string
+    
+    - source: jobs.status
+      column: job_status
+      type: string
+    
+    - source: jobs.conclusion
+      column: job_conclusion
+      type: string
+    
+    - source: jobs.duration_seconds
+      column: job_duration_seconds
+      type: float
+    
+    # Summary
+    - source: total_job_time_seconds
+      column: total_job_time_seconds
+      type: float
