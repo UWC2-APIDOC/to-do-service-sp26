@@ -1,0 +1,180 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/UWC2-APIDOC/to-do-service-auto/schemas/front-matter-schema.json",
+  "title": "API Documentation Front matter",
+  "description": "Schema for validating YAML front matter in API documentation markdown files",
+  "type": "object",
+  "required": [
+    "layout",
+    "description",
+    "topic_type"
+  ],
+  "properties": {
+    "layout": {
+      "type": "string",
+      "description": "Jekyll/just-the-docs layout template",
+      "enum": ["default", "page", "post"],
+      "examples": ["default"]
+    },
+    "parent": {
+      "type": "string",
+      "description": "Used by child pages. The page title of parent topic in the site navigation hierarchy. Must match the parent's page title exactly."
+    },
+    "has_children": {
+      "type": "boolean",
+      "description": "Indicates if the page has child pages in the site navigation hierarchy. Used by parent pages."
+    },
+    "has_toc": {
+      "type": "boolean",
+      "description": "Indicates if the page should show the table of contents."
+    },    
+    "nav_order": {
+      "type": "integer",
+      "description": "Order in navigation menu. Lower numbers appear first/higher in the menu.",
+      "minimum": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the page content",
+      "examples": ["GET the user resource with the specified ID from the service"],
+      "minLength": 10,
+      "maxLength": 200
+    },
+    "topic_type": {
+      "type": "string",
+      "description": "Type of documentation topic",
+      "examples": ["reference"],
+      "enum": ["reference", "tutorial", "guide", "concept", "overview"]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for categorizing content",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "categories": {
+      "type": "array",
+      "description": "Categories for organizing content",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "ai_relevance": {
+      "type": "string",
+      "description": "Relevance level for AI indexing",
+      "enum": ["high", "medium", "low"]
+    },
+    "importance": {
+      "type": "integer",
+      "description": "Importance score for content prioritization",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "prerequisites": {
+      "type": "array",
+      "description": "List of prerequisite pages or concepts to understand before reading this page",
+      "examples": ["getting-started","user resource"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_pages": {
+      "type": "array",
+      "description": "List of related pages",
+      "examples": ["GET user", "POST user"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "examples": {
+      "type": "array",
+      "description": "List of examples included in the page. Used by AI indexing to identify example-rich content.",
+      "examples": ["POST /user"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "test": {
+      "type": "object",
+      "description": "Test configuration for API examples",
+      "required": ["testable"],
+      "properties": {
+        "test_apps": {
+          "type": "array",
+          "description": "List of test applications/servers required. These should be installable by using npm to support GitHub Actions. This is not required if the service is running externally.",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+(@[0-9]+\\.[0-9]+\\.[0-9]+)?$"
+          },
+          "minItems": 1
+        },
+        "server_url": {
+          "type": "string",
+          "description": "URL where the test server is running",
+          "pattern": "^(https?://)?([a-zA-Z0-9.-]+|localhost)(:[0-9]+)?$"
+        },
+        "local_database": {
+          "type": "string",
+          "description": "Path to the test database file used by local test servers.",
+          "pattern": "^(/)?[a-zA-Z0-9/_.-]+\\.json$"
+        },
+        "testable": {
+          "type": "array",
+          "description": "List of testable examples with optional status codes. The string must be the beginning of the heading that contains the example, optionally followed by ' / ' and a comma-separated list of expected successful HTTP status codes. If not specified, 200 is assumed. The headings in the text must start with this string and be followed by ' request' for the request URL and ' response' for the result.",
+          "items": {
+            "type": "string",
+            "pattern": "^.+( / [0-9,]+)?$"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "api_endpoints": {
+      "type": "array",
+      "description": "List of API endpoints documented in this page. Used by AI and indexing tools.",
+      "items": {
+        "type": "string",
+        "pattern": "^(GET|POST|PUT|PATCH|DELETE|OPTIONS|HEAD)? ?/.+"
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "API version",
+      "pattern": "^v[0-9]+\\.[0-9]+(\\.[0-9]+)?$"
+    },
+    "last_updated": {
+      "type": "string",
+      "description": "Date of last update",
+      "format": "date"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "layout": "default",
+      "parent": "user resource",
+      "nav_order": 2,
+      "description": "GET the user resource with the specified ID from the service",
+      "topic_type": "reference",
+      "tags": ["api"],
+      "categories": ["api-reference"],
+      "ai_relevance": "high",
+      "importance": 7,
+      "prerequisites": ["/api/user"],
+      "related_pages": [],
+      "examples": ["GET /users/{id}"],
+      "test": {
+        "test_apps": ["json-server@0.17.4"],
+        "server_url": "localhost:3000",
+        "local_database": "/api/to-do-db-source-test.json",
+        "testable": ["GET example / 200", "POST example / 201"]
+      },
+      "api_endpoints": ["GET /users"],
+      "version": "v1.0",
+      "last_updated": "2026-03-01"
+    }
+  ]
+}
