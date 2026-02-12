@@ -1,0 +1,5 @@
+# .github/ISSUE_TEMPLATE/config.yml
+
+# This setting prevents users from creating a blank issue,
+# guiding them to use one of the templates you define below.
+blank_issues_enabled: false

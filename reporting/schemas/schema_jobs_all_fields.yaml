@@ -1,0 +1,109 @@
+# Default schema: All job fields from list-jobs command
+# Mode: Denormalized (jobs are already flat, no expansion needed)
+# Use this as a starting point - copy and remove fields you don't need
+# 
+# NOTE: This schema is for 'list-jobs' output which returns flat job objects.
+# The jobs already contain run_id to link back to runs.
+#
+# Example usage:
+#   workflow-data.py list-jobs <owner> <repo> <run-id> \
+#     --format csv --schema schema_jobs_all_fields.yaml
+
+jobs_all_fields:
+  description: "Complete job data (already flat from list-jobs)"
+  mode: denormalized
+  format: csv
+  
+  fields:
+    # Job identification
+    - source: id
+      column: job_id
+      type: integer
+    
+    - source: run_id
+      column: run_id
+      type: integer
+    
+    - source: workflow_name
+      column: workflow_name
+      type: string
+    
+    - source: head_branch
+      column: branch
+      type: string
+    
+    - source: run_url
+      column: run_url
+      type: url
+    
+    - source: run_attempt
+      column: run_attempt
+      type: integer
+    
+    - source: node_id
+      column: node_id
+      type: string
+    
+    - source: head_sha
+      column: commit_sha
+      type: string
+    
+    - source: url
+      column: job_api_url
+      type: url
+    
+    - source: html_url
+      column: job_web_url
+      type: url
+    
+    - source: status
+      column: status
+      type: string
+    
+    - source: conclusion
+      column: conclusion
+      type: string
+    
+    - source: created_at
+      column: created_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: started_at
+      column: started_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: completed_at
+      column: completed_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: name
+      column: job_name
+      type: string
+    
+    - source: check_run_url
+      column: check_run_url
+      type: url
+    
+    - source: labels
+      column: labels
+      type: string
+    
+    # Runner information
+    - source: runner_id
+      column: runner_id
+      type: integer
+    
+    - source: runner_name
+      column: runner_name
+      type: string
+    
+    - source: runner_group_id
+      column: runner_group_id
+      type: integer
+    
+    - source: runner_group_name
+      column: runner_group_name
+      type: string
