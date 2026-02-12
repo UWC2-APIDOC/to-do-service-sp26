@@ -1,0 +1,94 @@
+# Default schema: All step fields from a job
+# Mode: Denormalized (expands steps array into rows, includes job context)
+# Use this as a starting point - copy and remove fields you don't need
+#
+# Use this schema with the get-job command to get all step data for a specific job
+#
+# Example usage:
+#   workflow-data.py get-job <owner> <repo> <run-id> \
+#     --format csv --schema schema_steps_all_fields.yaml
+
+steps_all_fields:
+  description: "Complete step data with job context"
+  mode: denormalized
+  expand: steps
+  format: csv
+  
+  fields:
+    # Job context (repeated for each step)
+    - source: id
+      column: job_id
+      type: integer
+    
+    - source: run_id
+      column: run_id
+      type: integer
+    
+    - source: name
+      column: job_name
+      type: string
+    
+    - source: workflow_name
+      column: workflow_name
+      type: string
+    
+    - source: head_branch
+      column: branch
+      type: string
+    
+    - source: head_sha
+      column: commit_sha
+      type: string
+    
+    - source: status
+      column: job_status
+      type: string
+    
+    - source: conclusion
+      column: job_conclusion
+      type: string
+    
+    - source: started_at
+      column: job_started_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: completed_at
+      column: job_completed_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: url
+      column: job_api_url
+      type: url
+    
+    - source: html_url
+      column: job_web_url
+      type: url
+    
+    # Step fields (from steps array)
+    - source: steps.name
+      column: step_name
+      type: string
+    
+    - source: steps.status
+      column: step_status
+      type: string
+    
+    - source: steps.conclusion
+      column: step_conclusion
+      type: string
+    
+    - source: steps.number
+      column: step_number
+      type: integer
+    
+    - source: steps.started_at
+      column: step_started_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: steps.completed_at
+      column: step_completed_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"

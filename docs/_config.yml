@@ -1,0 +1,159 @@
+# This file configures how the docs are built.
+#
+#   The properties below are annotated for users who want to
+#     adapt this to their documentation set.
+#
+#   !!! indicates properties that YOU MUST change to adapt this
+#   +++ indicates properties that YOU CAN change, if you want to
+#   *** indicates properties that YOU MUST NOT change
+#
+# This defines the theme to use to build and style the docs.
+#   The value requires a valid Jekyll theme that is stored in a 
+#     publicly available GitHub repo.
+#     The format for this property's value is <GitHub account>/<repo> 
+#   *** DO NOT CHANGE THIS VALUE
+remote_theme: just-the-docs/just-the-docs
+#   For information about this theme and its options, see: https://just-the-docs.com/
+#
+# This defines the version of the theme to use.
+#   Described in: https://just-the-docs.com/docs/configuration/#color-scheme
+color_scheme: light
+#
+# These values describe aspects of the final documentation. How they are
+#   applied depends on the theme that is in use.
+#
+#   The title that you want to appear at the top of a topic
+#     and the description of your the documentation.
+#   !!! CHANGE THESE TO MATCH YOUR INSTALLATION OR ADAPTATION
+title: To-Do Service
+description: This is a mock API to simulate the REST interface of an
+  imaginary service. The To-Do service provides a cloud-hosted task
+  list through which subscribers can post tasks and receive
+  reminders of those tasks.
+#   !!! CHANGE THIS TO MATCH THE URL OF YOUR PUBLISHED DOCS
+url: https://uwc2-apidoc.github.io/to-do-service-auto
+baseurl: "/to-do-service-auto"
+#
+#   +++ REMOVE IF YOU DON'T WANT THE AUX LINKS AT THE TOP OF THE PAGE
+#       OR ADD MORE LINKS AS SUPPORTED BY THE THEME
+aux_links: 
+  To-Do Service repo: https://github.com/uwc2-apidoc/to-do-service-auto
+#
+#   Configures how each topic URL is formatted
+#   +++ YOU CAN CHANGE THIS, BUT YOU PROBABLY DO NOT WANT TO
+permalink: pretty
+#
+# Enable or disable the site search
+# Supports true (default) or false
+#
+#   +++ IF YOU DON'T NEED SEARCH. SET TO false AND ALL THE FOLLOWING search: PROPERTIES ARE IGNORED
+search_enabled: true
+search:
+  #
+  # +++ IF YOU USE SEARCH, THESE VALUES ARE PROBABLY GOOD ENOUGH
+  #       HOWEVER, YOU CAN CHANGE THEM TO WORK BEST FOR YOUR DOC SET.
+  #
+  # Split pages into sections that can be searched individually
+  # Supports 1 - 6, default: 2
+  heading_level: 2
+  # Maximum amount of previews per search result
+  # Default: 3
+  previews: 2
+  # Maximum amount of words to display before a matched word in the preview
+  # Default: 5
+  preview_words_before: 3
+  # Maximum amount of words to display after a matched word in the preview
+  # Default: 10
+  preview_words_after: 3
+  # Set the search token separator
+  # Default: /[\s\-/]+/
+  # Example: enable support for hyphenated search words
+  tokenizer_separator: /[\s/]+/
+  # Display the relative url in search results
+  # Supports true (default) or false
+  rel_url: true
+  # Enable or disable the search button that appears in the bottom right corner of every page
+  # Supports true or false (default)
+  button: false
+  # Focus the search input by pressing `ctrl + focus_shortcut_key` (or `cmd + focus_shortcut_key` on macOS)
+  focus_shortcut_key: 'k'
+
+# For copy button on code
+#
+#   +++ SET TO false IF YOU DON'T WANT A COPY BUTTON IN THE CODE BLOCKS
+enable_copy_code_button: true
+
+# Enable or disable heading anchors
+#
+#   +++ SET TO false IF YOU DON'T WANT HEADINGS IN THE TOPICS TO CREATE ANCHOR TAGS
+heading_anchors: true
+
+# Enable or disable the side/mobile menu globally
+# Nav menu can also be selectively enabled or disabled using page variables or the minimal layout
+#
+#   +++ SET TO false TO HIDE THE LEFT NAVIGATION
+nav_enabled: true
+
+# Sort order for navigation links
+#
+#   +++ SET TO case_sensitive to sort capital letters before lowercase
+nav_sort: case_insensitive # default, equivalent to nil
+
+#
+#   *** DO NOT CHANGE THESE VALUES
+liquid:
+   error_mode: strict
+   strict_filters: true
+
+# Footer content
+# appears at the bottom of every page's main content
+#
+# Back to top link
+#
+#   +++ YOU CAN CHANGE THESE IF YOU WANT.
+back_to_top: true
+back_to_top_text: "Back to top"
+
+#
+#   !!! CHANGE THIS VALUE TO APPLY TO YOUR DOCUMENTATION
+footer_content: "Copyright &copy; 2025 University of Washington. Distributed by an <a href=\"https://raw.githubusercontent.com/uwc2-apidoc/to-do-service-auto/main/LICENSE\">MIT license.</a>"
+#
+# - - - - - - - - - - - - - - - - 
+#
+#   The following describes the content of the front matter
+#     in the topics of this documentation. These properties
+#     determine the topic layout and the information architecture.
+#   For complete documentation of this theme, see https://just-the-docs.com/
+#
+#   THESE PROPERTIES AND VALUES ARE NOT A PART OF _config.yml
+#     THEY ARE HERE ONLY TO SERVE AS DOCUMENTATION.
+#
+#   Note: tags labeled as for use by AI are experimental and
+#         might not be supported by any AI tools.
+#
+#   layout: default
+#       Specifies the page layout to use for the topic.
+#       The default layout should work for most pages. 
+#       See also https://just-the-docs.com/docs/layout/layout/
+#
+#   nav_order: 4
+#       Specifies the order of the topic in its level of the TOC.
+#       This value is used to sort the menu items at the same menu level
+#         in the navigation, where 1 is the first entry, 2 is below 1, etc.
+#       See also https://just-the-docs.com/docs/navigation/main/order/
+
+#   parent: user resource
+#       Specifies the topic's immediate parent in the navigation hierarchy.
+#       The value is the page title of the parent topic.
+#       If the parent's page title is ambiguous, you can add a grand_parent
+#        property to be more specific.
+#       See also:
+#             https://just-the-docs.com/docs/navigation/main/levels/
+#             https://just-the-docs.com/docs/navigation/main/ancestry/
+#
+#   has_toc: false
+#       Specifies whether to display the default ToC of child topics or not.
+#       A value of false supresses the default ToC.    
+#       See also https://just-the-docs.com/docs/navigation/children/
+#
+#

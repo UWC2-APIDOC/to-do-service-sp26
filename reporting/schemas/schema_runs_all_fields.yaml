@@ -1,0 +1,407 @@
+# Default schema: All workflow run fields
+# Mode: Denormalized (single CSV file)
+# Use this as a starting point - copy and remove fields you don't need
+#
+# Use this schema with the list-runs command to get all workflow run data
+#
+# Example usage:
+#   workflow-data.py list-runs <owner> <repo> \
+#     --format csv --schema schema_runs_all_fields.yaml
+
+runs_all_fields:
+  description: "Complete workflow run data with all available fields"
+  mode: denormalized
+  format: csv
+  
+  fields:
+    # Core identification
+    - source: id
+      column: run_id
+      type: integer
+    
+    - source: name
+      column: workflow_name
+      type: string
+    
+    - source: node_id
+      column: node_id
+      type: string
+    
+    - source: head_branch
+      column: branch
+      type: string
+    
+    - source: head_sha
+      column: commit_sha
+      type: string
+    
+    - source: path
+      column: workflow_path
+      type: string
+    
+    - source: display_title
+      column: display_title
+      type: string
+    
+    - source: run_number
+      column: run_number
+      type: integer
+    
+    - source: event
+      column: trigger_event
+      type: string
+    
+    - source: status
+      column: status
+      type: string
+    
+    - source: conclusion
+      column: conclusion
+      type: string
+    
+    - source: workflow_id
+      column: workflow_id
+      type: integer
+    
+    - source: check_suite_id
+      column: check_suite_id
+      type: integer
+    
+    - source: check_suite_node_id
+      column: check_suite_node_id
+      type: string
+    
+    # URLs
+    - source: url
+      column: api_url
+      type: url
+    
+    - source: html_url
+      column: web_url
+      type: url
+    
+    - source: jobs_url
+      column: jobs_api_url
+      type: url
+    
+    - source: logs_url
+      column: logs_api_url
+      type: url
+    
+    - source: check_suite_url
+      column: check_suite_api_url
+      type: url
+    
+    - source: artifacts_url
+      column: artifacts_api_url
+      type: url
+    
+    - source: cancel_url
+      column: cancel_api_url
+      type: url
+    
+    - source: rerun_url
+      column: rerun_api_url
+      type: url
+    
+    - source: previous_attempt_url
+      column: previous_attempt_api_url
+      type: url
+    
+    - source: workflow_url
+      column: workflow_api_url
+      type: url
+    
+    # Timing
+    - source: created_at
+      column: created_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: updated_at
+      column: updated_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: run_started_at
+      column: run_started_at
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: run_attempt
+      column: run_attempt
+      type: integer
+    
+    - source: referenced_workflows
+      column: referenced_workflows
+      type: string
+    
+    # Actor (person who triggered the run)
+    - source: actor.login
+      column: actor_login
+      type: string
+    
+    - source: actor.id
+      column: actor_id
+      type: integer
+    
+    - source: actor.node_id
+      column: actor_node_id
+      type: string
+    
+    - source: actor.avatar_url
+      column: actor_avatar_url
+      type: url
+    
+    - source: actor.gravatar_id
+      column: actor_gravatar_id
+      type: string
+    
+    - source: actor.url
+      column: actor_api_url
+      type: url
+    
+    - source: actor.html_url
+      column: actor_web_url
+      type: url
+    
+    - source: actor.followers_url
+      column: actor_followers_url
+      type: url
+    
+    - source: actor.following_url
+      column: actor_following_url
+      type: url
+    
+    - source: actor.gists_url
+      column: actor_gists_url
+      type: url
+    
+    - source: actor.starred_url
+      column: actor_starred_url
+      type: url
+    
+    - source: actor.subscriptions_url
+      column: actor_subscriptions_url
+      type: url
+    
+    - source: actor.organizations_url
+      column: actor_organizations_url
+      type: url
+    
+    - source: actor.repos_url
+      column: actor_repos_url
+      type: url
+    
+    - source: actor.events_url
+      column: actor_events_url
+      type: url
+    
+    - source: actor.received_events_url
+      column: actor_received_events_url
+      type: url
+    
+    - source: actor.type
+      column: actor_type
+      type: string
+    
+    - source: actor.site_admin
+      column: actor_site_admin
+      type: boolean
+    
+    # Triggering actor (may differ from actor for re-runs)
+    - source: triggering_actor.login
+      column: triggering_actor_login
+      type: string
+    
+    - source: triggering_actor.id
+      column: triggering_actor_id
+      type: integer
+    
+    - source: triggering_actor.node_id
+      column: triggering_actor_node_id
+      type: string
+    
+    - source: triggering_actor.avatar_url
+      column: triggering_actor_avatar_url
+      type: url
+    
+    - source: triggering_actor.gravatar_id
+      column: triggering_actor_gravatar_id
+      type: string
+    
+    - source: triggering_actor.url
+      column: triggering_actor_api_url
+      type: url
+    
+    - source: triggering_actor.html_url
+      column: triggering_actor_web_url
+      type: url
+    
+    - source: triggering_actor.followers_url
+      column: triggering_actor_followers_url
+      type: url
+    
+    - source: triggering_actor.following_url
+      column: triggering_actor_following_url
+      type: url
+    
+    - source: triggering_actor.gists_url
+      column: triggering_actor_gists_url
+      type: url
+    
+    - source: triggering_actor.starred_url
+      column: triggering_actor_starred_url
+      type: url
+    
+    - source: triggering_actor.subscriptions_url
+      column: triggering_actor_subscriptions_url
+      type: url
+    
+    - source: triggering_actor.organizations_url
+      column: triggering_actor_organizations_url
+      type: url
+    
+    - source: triggering_actor.repos_url
+      column: triggering_actor_repos_url
+      type: url
+    
+    - source: triggering_actor.events_url
+      column: triggering_actor_events_url
+      type: url
+    
+    - source: triggering_actor.received_events_url
+      column: triggering_actor_received_events_url
+      type: url
+    
+    - source: triggering_actor.type
+      column: triggering_actor_type
+      type: string
+    
+    - source: triggering_actor.site_admin
+      column: triggering_actor_site_admin
+      type: boolean
+    
+    # Head commit
+    - source: head_commit.id
+      column: head_commit_sha
+      type: string
+    
+    - source: head_commit.tree_id
+      column: head_commit_tree_id
+      type: string
+    
+    - source: head_commit.message
+      column: head_commit_message
+      type: string
+    
+    - source: head_commit.timestamp
+      column: head_commit_timestamp
+      type: timestamp
+      format: "%Y-%m-%d %H:%M:%S"
+    
+    - source: head_commit.author.name
+      column: head_commit_author_name
+      type: string
+    
+    - source: head_commit.author.email
+      column: head_commit_author_email
+      type: string
+    
+    - source: head_commit.committer.name
+      column: head_commit_committer_name
+      type: string
+    
+    - source: head_commit.committer.email
+      column: head_commit_committer_email
+      type: string
+    
+    # Repository
+    - source: repository.id
+      column: repo_id
+      type: integer
+    
+    - source: repository.node_id
+      column: repo_node_id
+      type: string
+    
+    - source: repository.name
+      column: repo_name
+      type: string
+    
+    - source: repository.full_name
+      column: repo_full_name
+      type: string
+    
+    - source: repository.owner.login
+      column: repo_owner_login
+      type: string
+    
+    - source: repository.owner.id
+      column: repo_owner_id
+      type: integer
+    
+    - source: repository.private
+      column: repo_private
+      type: boolean
+    
+    - source: repository.html_url
+      column: repo_web_url
+      type: url
+    
+    - source: repository.description
+      column: repo_description
+      type: string
+    
+    - source: repository.fork
+      column: repo_is_fork
+      type: boolean
+    
+    - source: repository.url
+      column: repo_api_url
+      type: url
+    
+    # Head repository (for PRs from forks)
+    - source: head_repository.id
+      column: head_repo_id
+      type: integer
+    
+    - source: head_repository.node_id
+      column: head_repo_node_id
+      type: string
+    
+    - source: head_repository.name
+      column: head_repo_name
+      type: string
+    
+    - source: head_repository.full_name
+      column: head_repo_full_name
+      type: string
+    
+    - source: head_repository.owner.login
+      column: head_repo_owner_login
+      type: string
+    
+    - source: head_repository.owner.id
+      column: head_repo_owner_id
+      type: integer
+    
+    - source: head_repository.private
+      column: head_repo_private
+      type: boolean
+    
+    - source: head_repository.html_url
+      column: head_repo_web_url
+      type: url
+    
+    - source: head_repository.description
+      column: head_repo_description
+      type: string
+    
+    - source: head_repository.fork
+      column: head_repo_is_fork
+      type: boolean
+    
+    - source: head_repository.url
+      column: head_repo_api_url
+      type: url
