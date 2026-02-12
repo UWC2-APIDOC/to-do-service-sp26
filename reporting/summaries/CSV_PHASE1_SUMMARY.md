@@ -155,7 +155,7 @@ Run data is repeated for each job (denormalized).
 
 ```bash
 # Test with real data
-workflow-data.py list-runs rbwatson to-do-service-auto --days 1 \
+workflow-data.py list-runs rbwatson to-do-service-sp26 --days 1 \
   --format csv \
   --schema schema_runs_all_fields.yaml \
   | head -20

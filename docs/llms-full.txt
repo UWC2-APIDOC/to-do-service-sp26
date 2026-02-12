@@ -1,0 +1,126 @@
+---
+layout: null
+permalink: /llms-full.txt
+---
+# {{ site.title }} - Comprehensive Documentation Guide
+
+> {{ site.description }}
+
+## About This Repository
+
+This is the comprehensive AI-friendly guide to {% if site.github.project_title %}{{ site.github.project_title }}{% else %}{{ site.title }}{% endif %}. This extended file contains detailed information about the documentation structure, content organization, and key concepts to help AI assistants provide more accurate and contextual responses about this project.
+
+## Project Overview
+
+{% if site.github %}
+- **Repository**: {% if site.github.repository_nwo %}[{{ site.github.repository_nwo }}]({{ site.github.repository_url }}){% else %}[{{ site.github.repository_name }}]({{ site.github.repository_url }}){% endif %}
+- **Owner**: {{ site.github.owner_name }}
+- **Last Updated**: {{ site.time | date: "%Y-%m-%d" }}
+{% endif %}
+
+## Complete Documentation Structure
+
+{% for page in site.pages %}
+{% if page.title and page.url != "/llms.txt" and page.url != "/llms-full.txt" and page.url != "/sitemap.xml" %}
+### [{{ page.title }}]({{ site.url }}{{ site.baseurl }}{{ page.url }})
+
+{% if page.description %}{{ page.description }}{% endif %}
+
+{% if page.last_updated %}
+**Last updated**:  {{ page.last_updated }}
+{% endif %}
+
+{% if page.tags %}
+**Tags**: {% for tag in page.tags %}{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+{% endif %}
+
+{% if page.categories %}
+**Categories**: {% for category in page.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+{% endif %}
+
+{% if page.importance %}
+**Importance**: {{ page.importance }}/10
+{% endif %}
+
+{% if page.prerequisites %}
+**Prerequisites**: 
+{% for prereq in page.prerequisites %}
+- {{ prereq }}
+{% endfor %}
+{% endif %}
+
+{% if page.related_pages %}
+**Related Pages**: 
+{% for related in page.related_pages %}
+- {{ related }}
+{% endfor %}
+{% endif %}
+
+{% if page.api_endpoints %}
+**API Endpoints**: 
+{% for endpoint in page.api_endpoints %}
+- `{{ endpoint }}`
+{% endfor %}
+{% endif %}
+
+{% endif %}
+{% endfor %}
+
+## Key Concepts and Terminology
+
+{% assign all_tags = '' | split: '' %}
+{% for page in site.pages %}
+  {% if page.tags %}
+    {% assign page_tags = page.tags %}
+    {% for tag in page_tags %}
+      {% assign all_tags = all_tags | push: tag %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% assign unique_tags = all_tags | uniq | sort %}
+{% if unique_tags.size > 0 %}
+Important topics in this documentation:
+
+{% for tag in unique_tags %}
+- **{{ tag }}**
+{% endfor %}
+{% endif %}
+
+## API Reference
+
+API-related documentation:
+
+{% for page in site.pages %}
+{% if page.categories contains 'api' or page.tags contains 'api' %}
+- [{{ page.title }}]({{ site.url }}{{ site.baseurl }}{{ page.url }}){% if page.description %}: {{ page.description }}{% endif %}
+{% endif %}
+{% endfor %}
+
+## Examples and Tutorials
+
+Tutorials and examples:
+
+{% for page in site.pages %}
+{% if page.categories contains 'examples' or page.categories contains 'tutorials' or page.tags contains 'example' or page.tags contains 'tutorial' %}
+- [{{ page.title }}]({{ site.url }}{{ site.baseurl }}{{ page.url }}){% if page.description %}: {{ page.description }}{% endif %}
+{% endif %}
+{% endfor %}
+
+## Recommended Learning Path
+
+1. Start with the [homepage]({{ site.url }}{{ site.baseurl }}/) to understand the project's purpose
+2. Review the installation and setup documentation
+3. Explore the examples to see practical applications
+4. Refer to the API documentation for specific implementation details
+
+## Additional Resources
+
+{% if site.github.issues_url %}
+- [Issues and Bug Reports]({{ site.github.issues_url }})
+{% endif %}
+{% if site.github.wiki_url %}
+- [Project Wiki]({{ site.github.wiki_url }})
+{% endif %}
+
+Last generated: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}

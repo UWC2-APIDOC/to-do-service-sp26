@@ -13,7 +13,7 @@ permissions:
 # Note: GitHub Actions doesn't support variable interpolation in env at workflow level,
 # so we define the base and construct full URLs in job steps when needed
 env:
-  WIKI_BASE: https://github.com/UWC2-APIDOC/to-do-service-auto/wiki
+  WIKI_BASE: https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki
 
 jobs:
   # ============================================================

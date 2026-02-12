@@ -110,34 +110,34 @@ This returns:
 
 **Minimal output for quick scanning:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --fields "id,name,conclusion"
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --fields "id,name,conclusion"
 ```
 
 **Include timing information:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --fields "id,name,created_at,updated_at,conclusion"
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --fields "id,name,created_at,updated_at,conclusion"
 ```
 
 **Include author information:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --fields "id,name,actor.login,conclusion"
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --fields "id,name,actor.login,conclusion"
 ```
 
 **Job-level fields:**
 ```bash
-python3 workflow-data.py list-jobs rbwatson to-do-service-auto 12345 --fields "id,name,conclusion,started_at,completed_at"
+python3 workflow-data.py list-jobs rbwatson to-do-service-sp26 12345 --fields "id,name,conclusion,started_at,completed_at"
 ```
 
 **Filter array fields (e.g., steps in a job):**
 ```bash
 # Get just step names
-python3 workflow-data.py get-job rbwatson to-do-service-auto 67890 --fields "id,name,steps.name"
+python3 workflow-data.py get-job rbwatson to-do-service-sp26 67890 --fields "id,name,steps.name"
 
 # Get multiple fields from each step
-python3 workflow-data.py get-job rbwatson to-do-service-auto 67890 --fields "steps.name,steps.conclusion,steps.number"
+python3 workflow-data.py get-job rbwatson to-do-service-sp26 67890 --fields "steps.name,steps.conclusion,steps.number"
 
 # Combine with top-level fields
-python3 workflow-data.py get-job rbwatson to-do-service-auto 67890 --fields "id,name,conclusion,steps.name,steps.conclusion"
+python3 workflow-data.py get-job rbwatson to-do-service-sp26 67890 --fields "id,name,conclusion,steps.name,steps.conclusion"
 ```
 
 Output example:
@@ -169,72 +169,72 @@ Output example:
 
 **List all recent workflow runs:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26
 ```
 
 **Return only specific fields:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --fields "id,name,conclusion,created_at"
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --fields "id,name,conclusion,created_at"
 ```
 
 **Use nested fields with dot notation:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --fields "id,name,actor.login,head_commit.message"
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --fields "id,name,actor.login,head_commit.message"
 ```
 
 **Filter to specific workflow:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --workflow pr-validation.yml
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --workflow pr-validation.yml
 ```
 
 **List runs from last 14 days:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --days 14
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --days 14
 ```
 
 **Filter by branch:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --branch main
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --branch main
 ```
 
 **Filter by status:**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --status completed
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --status completed
 ```
 
 **Get run with specific fields:**
 ```bash
-python3 workflow-data.py get-run rbwatson to-do-service-auto 12345678 --fields "id,name,conclusion"
+python3 workflow-data.py get-run rbwatson to-do-service-sp26 12345678 --fields "id,name,conclusion"
 ```
 
 **List jobs with specific fields:**
 ```bash
-python3 workflow-data.py list-jobs rbwatson to-do-service-auto 12345678 --fields "id,name,conclusion,started_at"
+python3 workflow-data.py list-jobs rbwatson to-do-service-sp26 12345678 --fields "id,name,conclusion,started_at"
 ```
 
 **Get run details:**
 ```bash
-python3 workflow-data.py get-run rbwatson to-do-service-auto 12345678
+python3 workflow-data.py get-run rbwatson to-do-service-sp26 12345678
 ```
 
 **List jobs in a run:**
 ```bash
-python3 workflow-data.py list-jobs rbwatson to-do-service-auto 12345678
+python3 workflow-data.py list-jobs rbwatson to-do-service-sp26 12345678
 ```
 
 **Get job details:**
 ```bash
-python3 workflow-data.py get-job rbwatson to-do-service-auto 98765432
+python3 workflow-data.py get-job rbwatson to-do-service-sp26 98765432
 ```
 
 **Get timing information:**
 ```bash
-python3 workflow-data.py timing rbwatson to-do-service-auto 12345678
+python3 workflow-data.py timing rbwatson to-do-service-sp26 12345678
 ```
 
 **Compact output (no pretty-printing):**
 ```bash
-python3 workflow-data.py list-runs rbwatson to-do-service-auto --compact
+python3 workflow-data.py list-runs rbwatson to-do-service-sp26 --compact
 ```
 
 ### Programmatic Usage
@@ -248,14 +248,14 @@ from workflow_data_utils import (
 # List all recent runs
 runs = list_workflow_runs(
     repo_owner='rbwatson',
-    repo_name='to-do-service-auto',
+    repo_name='to-do-service-sp26',
     days_back=7
 )
 
 # Or filter to specific workflow
 runs = list_workflow_runs(
     repo_owner='rbwatson',
-    repo_name='to-do-service-auto',
+    repo_name='to-do-service-sp26',
     workflow_name='pr-validation.yml',
     days_back=7
 )
@@ -266,7 +266,7 @@ if runs:
     # Get timing for first run
     if runs:
         run_id = runs[0]['id']
-        timing = get_workflow_run_timing('rbwatson', 'to-do-service-auto', run_id)
+        timing = get_workflow_run_timing('rbwatson', 'to-do-service-sp26', run_id)
         
         if timing:
             print(f"Run duration: {timing['run_duration_seconds']} seconds")

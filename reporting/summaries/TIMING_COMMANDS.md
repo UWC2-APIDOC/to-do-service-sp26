@@ -99,13 +99,13 @@ run_id,workflow_name,run_number,run_created_at,run_duration_seconds,actor,job_na
 ### Get timing for last 7 days (JSON)
 
 ```bash
-workflow-data.py list-run-timing rbwatson to-do-service-auto
+workflow-data.py list-run-timing rbwatson to-do-service-sp26
 ```
 
 ### Get timing for last 14 days, specific workflow (JSON)
 
 ```bash
-workflow-data.py list-run-timing rbwatson to-do-service-auto \
+workflow-data.py list-run-timing rbwatson to-do-service-sp26 \
   --days 14 \
   --workflow pr-validation.yml
 ```
@@ -113,7 +113,7 @@ workflow-data.py list-run-timing rbwatson to-do-service-auto \
 ### Get timing as CSV
 
 ```bash
-workflow-data.py list-run-timing rbwatson to-do-service-auto \
+workflow-data.py list-run-timing rbwatson to-do-service-sp26 \
   --days 7 \
   --format csv \
   --schema schema_run_timing.yaml
@@ -122,7 +122,7 @@ workflow-data.py list-run-timing rbwatson to-do-service-auto \
 ### Save CSV to file
 
 ```bash
-workflow-data.py list-run-timing rbwatson to-do-service-auto \
+workflow-data.py list-run-timing rbwatson to-do-service-sp26 \
   --days 7 \
   --format csv \
   --schema schema_run_timing.yaml \
@@ -132,7 +132,7 @@ workflow-data.py list-run-timing rbwatson to-do-service-auto \
 ### Append to existing CSV (daily collection)
 
 ```bash
-workflow-data.py list-run-timing rbwatson to-do-service-auto \
+workflow-data.py list-run-timing rbwatson to-do-service-sp26 \
   --days 1 \
   --format csv \
   --schema schema_run_timing.yaml \
@@ -143,13 +143,13 @@ workflow-data.py list-run-timing rbwatson to-do-service-auto \
 ### Get timing for single run
 
 ```bash
-workflow-data.py get-run-timing rbwatson to-do-service-auto 12345678
+workflow-data.py get-run-timing rbwatson to-do-service-sp26 12345678
 ```
 
 ### Get single run timing as CSV
 
 ```bash
-workflow-data.py get-run-timing rbwatson to-do-service-auto 12345678 \
+workflow-data.py get-run-timing rbwatson to-do-service-sp26 12345678 \
   --format csv \
   --schema schema_run_timing.yaml
 ```
@@ -250,13 +250,13 @@ subparsers.add_parser('timing', help='(alias for get-run-timing)')
 **Manual testing needed:**
 ```bash
 # Test list command (requires valid repo with runs)
-workflow-data.py list-run-timing rbwatson to-do-service-auto --days 1
+workflow-data.py list-run-timing rbwatson to-do-service-sp26 --days 1
 
 # Test get command (requires valid run ID)
-workflow-data.py get-run-timing rbwatson to-do-service-auto <run-id>
+workflow-data.py get-run-timing rbwatson to-do-service-sp26 <run-id>
 
 # Test CSV output
-workflow-data.py list-run-timing rbwatson to-do-service-auto --days 1 \
+workflow-data.py list-run-timing rbwatson to-do-service-sp26 --days 1 \
   --format csv --schema schema_run_timing.yaml
 
 # Verify denormalization (jobs become rows)

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/UWC2-APIDOC/to-do-service-auto/schemas/front-matter-schema.json",
+  "$id": "https://github.com/UWC2-APIDOC/to-do-service-sp26/schemas/front-matter-schema.json",
   "title": "API Documentation Front matter",
   "description": "Schema for validating YAML front matter in API documentation markdown files",
   "type": "object",

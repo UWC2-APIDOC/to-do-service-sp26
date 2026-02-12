@@ -21,7 +21,7 @@ import os
 # Base wiki URL - use environment variable if available, otherwise use default
 WIKI_BASE_URL = os.environ.get(
     'WIKI_BASE',
-    "https://github.com/UWC2-APIDOC/to-do-service-auto/wiki"
+    "https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki"
 )
 
 # Help page URLs
