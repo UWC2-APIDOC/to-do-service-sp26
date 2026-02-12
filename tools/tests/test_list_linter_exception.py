@@ -166,7 +166,7 @@ More text with another Vale exception.
     assert exceptions['markdownlint'][0]['line'] == 6, f"First markdownlint exception should be on line 6, got {exceptions['markdownlint'][0]['line']}"
     assert exceptions['markdownlint'][1]['rule'] == 'MD033', "Second markdownlint rule should be MD033"
     assert exceptions['markdownlint'][1]['line'] == 12, f"Second markdownlint exception should be on line 12, got {exceptions['markdownlint'][1]['line']}"
-    print("  SUCCESS: Markdownlint exception details correct")
+    print("  SUCCESS: MarkdownLint exception details correct")
     
     print("  ✓ All mixed exception tests passed")
 

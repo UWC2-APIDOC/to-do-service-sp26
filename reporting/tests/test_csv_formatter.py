@@ -211,7 +211,7 @@ def test_expand_array():
     
     data = {
         'id': 123,
-        'name': 'PR Validation',
+        'name': 'Pull request Validation',
         'jobs': [
             {'id': 456, 'name': 'Lint'},
             {'id': 457, 'name': 'Test'}
@@ -273,7 +273,7 @@ def test_format_as_csv_with_expansion():
     
     data = {
         'id': 123,
-        'name': 'PR Validation',
+        'name': 'Pull request Validation',
         'jobs': [
             {'id': 456, 'name': 'Lint', 'status': 'success'},
             {'id': 457, 'name': 'Test', 'status': 'success'}

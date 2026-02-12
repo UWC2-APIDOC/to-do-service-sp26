@@ -525,7 +525,7 @@ def list_workflow_run_timing(
         >>> timings[0]['run_id']
         <run-id>
         >>> timings[0]['run_name']
-        'PR Validation'
+        'Pull request Validation'
         >>> timings[0]['jobs'][0]['name']
         'Validate Testing Tools'
         >>> timings[0]['jobs'][0]['duration_seconds']

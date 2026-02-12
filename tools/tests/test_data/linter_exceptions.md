@@ -14,7 +14,7 @@ This paragraph has a Vale exception for Style.Rule.
 It should be detected by the scanner.
 <!-- vale Style.Rule = YES -->
 
-## Markdownlint Exceptions
+## MarkdownLint Exceptions
 
 <!-- markdownlint-disable MD013 -->
 This is a really really really really really really really really really really really really really really really long line that exceeds the line length limit.

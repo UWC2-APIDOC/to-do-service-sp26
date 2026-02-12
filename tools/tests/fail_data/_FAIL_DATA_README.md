@@ -54,7 +54,7 @@ These files are used to verify error handling and edge case behavior.
 
 - Vale tags missing `=` sign
 - Vale tags missing `NO` keyword
-- Markdownlint tags with wrong format
+- MarkdownLint tags with wrong format
 - Incomplete rule numbers
 - Wrong comment styles (`//`, `/* */`)
 - **Also includes 2 valid tags** for comparison

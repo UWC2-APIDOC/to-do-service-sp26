@@ -127,7 +127,7 @@ When `expand: jobs` is specified:
 ```json
 {
   "id": 123,
-  "name": "PR Validation",
+  "name": "Pull request Validation",
   "jobs": [
     {"id": 456, "name": "Lint"},
     {"id": 457, "name": "Test"}
@@ -138,8 +138,8 @@ When `expand: jobs` is specified:
 **Output CSV:**
 ```csv
 run_id,run_name,job_id,job_name
-123,PR Validation,456,Lint
-123,PR Validation,457,Test
+123,Pull request Validation,456,Lint
+123,Pull request Validation,457,Test
 ```
 
 Run data is repeated for each job (denormalized).

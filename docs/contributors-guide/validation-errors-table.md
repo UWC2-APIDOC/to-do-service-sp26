@@ -29,7 +29,7 @@ last_updated: "2026-03-01"
 
 # Fixing validation errors
 
-This table lists all problems reported by the PR validation workflow.
+This table lists all problems reported by the Pull request validation workflow.
 
 <!-- vale Google.Parens = NO -->
 <!-- vale write-good = NO -->
@@ -44,9 +44,9 @@ This table lists all problems reported by the PR validation workflow.
 | **Filename** |
 | Filename contains unsafe characters | Error | Found N unsafe filenames in changed-files list | None |
 | **Commit structure** |
-| Branch not up to date | Warning | PR branch not up to date. Consider rebasing. | <https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki/Updating-Your-Branch> |
-| Multiple commits in PR | Error | PR must contain exactly one commit; found N | <https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki/Squashing-Commits> |
-| PR contains merge commits | Error | PR contains merge commits; found N | <https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki/Avoiding-Merge-Commits> |
+| Branch not up to date | Warning | Pull request branch not up to date. Consider rebasing. | <https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki/Updating-Your-Branch> |
+| Multiple commits in Pull request | Error | Pull request must contain exactly one commit; found N | <https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki/Squashing-Commits> |
+| Pull request contains merge commits | Error | Pull request contains merge commits; found N | <https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki/Avoiding-Merge-Commits> |
 | **Front matter** |
 | Front matter required but has skip comment (docs directory) | Error | Files in `/docs` directory require front matter | None |
 | Front matter recommended but has skip comment (assignments) | Warning | Files in `/assignments` directory should include front matter | None |
@@ -93,7 +93,7 @@ This table lists all problems reported by the PR validation workflow.
 
 ### Severity levels
 
-**Error** - Validation fails, unable to merge PR until fixed
+**Error** - Validation fails, unable to merge Pull request until fixed
 
 **Warning** - Validation passes but still has issues to address
 

@@ -17,7 +17,7 @@ env:
 
 jobs:
   # ============================================================
-  # STAGE 0: Discover Changed Files
+  # STAGE 0: Discover changed files
   # ============================================================
   discover-changes:
     name: Discover changed files
@@ -88,7 +88,7 @@ jobs:
           echo "- Unauthorized files: ${{ steps.outside-allowed.outputs.any_changed }}" >> $GITHUB_STEP_SUMMARY
 
   # ============================================================
-  # STAGE 1: Test Tools (BLOCKING)
+  # STAGE 1: Test tools (BLOCKING)
   # ============================================================
   test-tools:
     name: Validate testing tools
@@ -124,7 +124,7 @@ jobs:
           fi
 
   # ============================================================
-  # STAGE 2: Lint and Validate Content
+  # STAGE 2: Lint and validate content
   # ============================================================
   lint-markdown:
     name: Lint markdown files
@@ -203,7 +203,7 @@ jobs:
           fi
 
   # ============================================================
-  # STAGE 3: Test API Documentation Examples
+  # STAGE 3: Test API documentation examples
   # ============================================================
   test-api-docs:
     name: Test API documentation examples
@@ -455,7 +455,7 @@ jobs:
           fi
 
   # ============================================================
-  # STAGE 4: Validate Commits (Final Gate)
+  # STAGE 4: Validate commits (Final Gate)
   # ============================================================
   validate-commits:
     name: Validate commit structure
@@ -503,7 +503,7 @@ jobs:
           git fetch origin ${{ github.event.pull_request.base.ref }}
           
           if ! git merge-base --is-ancestor $BASE_SHA $HEAD_SHA; then
-            echo "::warning::PR branch not up to date. Consider rebasing."
+            echo "::warning::Pull request branch not up to date. Consider rebasing."
             echo "Help: ${{ env.WIKI_BASE }}/Updating-Your-Branch"
           else
             echo "Branch is up to date"
@@ -521,13 +521,13 @@ jobs:
           FAILED=false
           
           if [ $COMMIT_COUNT -ne 1 ]; then
-            echo "::error::PR must contain exactly one commit; found $COMMIT_COUNT"
+            echo "::error::Pull request must contain exactly one commit; found $COMMIT_COUNT"
             echo "Help: ${{ env.WIKI_BASE }}/Squashing-Commits"
             FAILED=true
           fi
           
           if [ $MERGE_COMMITS -gt 0 ]; then
-            echo "::error::PR contains merge commits; found $MERGE_COMMITS"
+            echo "::error::Pull request contains merge commits; found $MERGE_COMMITS"
             echo "Help: ${{ env.WIKI_BASE }}/Avoiding-Merge-Commits"
             FAILED=true
           fi
@@ -536,7 +536,7 @@ jobs:
             exit 1
           fi
           
-          echo "PR has exactly 1 commit and no merge commits"
+          echo "Pull request has exactly 1 commit and no merge commits"
       
       - name: Summary
         if: always()
