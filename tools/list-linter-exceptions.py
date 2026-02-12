@@ -38,8 +38,8 @@ def list_vale_exceptions(content):
     Detects:
     - Vale specific rules: <!-- vale RuleName = NO -->
     - Vale global disable: <!-- vale off -->
-    - Markdownlint specific rules: <!-- markdownlint-disable MD### -->
-    - Markdownlint global disable: <!-- markdownlint-disable -->
+    - MarkdownLint specific rules: <!-- markdownlint-disable MD### -->
+    - MarkdownLint global disable: <!-- markdownlint-disable -->
     
     Args:
         content: Markdown file content as string
@@ -62,10 +62,10 @@ def list_vale_exceptions(content):
     # Vale: <!-- vale off --> (global disable)
     vale_global_pattern = r'<!--\s*vale\s+off\s*-->'
     
-    # Markdownlint: <!-- markdownlint-disable MD### --> (specific rule)
+    # MarkdownLint: <!-- markdownlint-disable MD### --> (specific rule)
     markdown_specific_pattern = r'<!--\s*markdownlint-disable\s+(MD\d{3})\s*-->'
     
-    # Markdownlint: <!-- markdownlint-disable --> (global disable)
+    # MarkdownLint: <!-- markdownlint-disable --> (global disable)
     markdown_global_pattern = r'<!--\s*markdownlint-disable\s*-->'
     
     lines = content.split('\n')
@@ -130,7 +130,7 @@ def output_normal(filepath, exceptions):
         log("No Vale exceptions found.", "info")
     
     if md_count > 0:
-        log("Markdownlint exceptions:", "info")
+        log("MarkdownLint exceptions:", "info")
         for exc in exceptions['markdownlint']:
             log(f"  Line {exc['line']}: {exc['rule']}", "info")
     else:
@@ -176,7 +176,7 @@ def output_action(filepath, exceptions, action_level):
     if md_count > 0:
         # Annotate each exception
         for exc in exceptions['markdownlint']:
-            log(f"Markdownlint exception: {exc['rule']}",
+            log(f"MarkdownLint exception: {exc['rule']}",
                 "warning",
                 str(filepath),
                 exc['line'],

@@ -48,7 +48,7 @@ These are the rules that documentation must follow to pass automated validation.
 - Students (non-admin, non-write permission users) can only change files in `/docs/` and `/assignments/`
 - Changes to other directories require admin or write permissions
 
-**Violation Result:** PR validation fails with error
+**Violation Result:** Pull request validation fails with error
 **Help Link:** `https://github.com/UWC2-APIDOC/to-do-service-sp26/wiki/File-Locations`
 
 ---
@@ -66,7 +66,7 @@ Filenames must not contain:
 
 **Validation Tool:** `tools/test-filenames.py`
 **Checked via:** `CHANGED_FILES` environment variable
-**Violation Result:** Error annotation, PR fails
+**Violation Result:** Error annotation, Pull request fails
 
 ---
 
@@ -74,7 +74,7 @@ Filenames must not contain:
 
 ### Commit count
 
-- PR must contain exactly 1 commit
+- Pull request must contain exactly 1 commit
 - No more, no less
 
 **Violation Result:** Error with message showing actual count
@@ -82,7 +82,7 @@ Filenames must not contain:
 
 ### Merge commits
 
-- PR must not contain any merge commits
+- Pull request must not contain any merge commits
 - Use rebase instead
 
 **Violation Result:** Error with message showing merge commit count
@@ -90,7 +90,7 @@ Filenames must not contain:
 
 ### Branch status
 
-- Warning, if the PR branch isn't up to date with base branch
+- Warning, if the Pull request branch isn't up to date with base branch
 - Recommendation to rebase
 
 **Violation Result:** Warning annotation

@@ -55,7 +55,7 @@ New CSV schema for timing output:
 [
   {
     "run_id": 12345,
-    "run_name": "PR Validation",
+    "run_name": "Pull request Validation",
     "run_number": 42,
     "run_created_at": "2024-12-16T10:00:00Z",
     "run_updated_at": "2024-12-16T10:03:25Z",
@@ -88,10 +88,10 @@ New CSV schema for timing output:
 
 ```csv
 run_id,workflow_name,run_number,run_created_at,run_duration_seconds,actor,job_name,job_status,job_conclusion,job_duration_seconds
-12345,PR Validation,42,2024-12-16 10:00:00,205.0,rbwatson,Validate Testing Tools,completed,success,45.2
-12345,PR Validation,42,2024-12-16 10:00:00,205.0,rbwatson,Lint Markdown Files,completed,success,89.1
-12346,PR Validation,43,2024-12-16 11:30:00,198.5,alice,Validate Testing Tools,completed,success,42.1
-12346,PR Validation,43,2024-12-16 11:30:00,198.5,alice,Lint Markdown Files,completed,success,85.3
+12345,Pull request Validation,42,2024-12-16 10:00:00,205.0,rbwatson,Validate Testing Tools,completed,success,45.2
+12345,Pull request Validation,42,2024-12-16 10:00:00,205.0,rbwatson,Lint Markdown Files,completed,success,89.1
+12346,Pull request Validation,43,2024-12-16 11:30:00,198.5,alice,Validate Testing Tools,completed,success,42.1
+12346,Pull request Validation,43,2024-12-16 11:30:00,198.5,alice,Lint Markdown Files,completed,success,85.3
 ```
 
 ## Usage Examples

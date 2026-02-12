@@ -526,7 +526,7 @@ Each pull request must contain exactly one commit:
 - If you have more than one commit, squash them into one
 - Use `rebase` to update your feature branch. Don't use merge commits.
 
-The validation checks fail if your PR has more than one commit or merge commits.
+The validation checks fail if your Pull request has more than one commit or merge commits.
 
 ### Branch updates
 
@@ -645,7 +645,7 @@ or fix the API to return what's documented.
 
 ### Commit errors
 
-**Error:** PR must contain exactly one commit
+**Error:** Pull request must contain exactly one commit
 
 **Fix:** Squash your commits:
 
@@ -655,7 +655,7 @@ git rebase -i HEAD~n  # where n is your number of commits
 git push --force-with-lease
 ```
 
-**Error:** PR contains merge commits
+**Error:** Pull request contains merge commits
 
 **Fix:** Rebase instead of merge:
 

@@ -18,7 +18,7 @@ This Vale tag is missing the equals sign.
 <!-- vale Style.Rule = -->
 This Vale tag is missing the NO keyword.
 
-## Wrong Format for Markdownlint
+## Wrong Format for MarkdownLint
 
 <!-- markdownlint MD013 -->
 Missing the -disable part.

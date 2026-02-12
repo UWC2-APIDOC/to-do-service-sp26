@@ -1,13 +1,16 @@
+# Pull request details
+
 **In the title, describe this pull request.**
 **If it fixes an issue, add this text to the end of the title:**
 
-Fixes issue #XXX
+Fixes issue #\<issue number\>
 
 **Then delete this prompt text from the pull request description**
 
-## Contributor Checklist
+## Contributor checklist
 
-Confirm and check the following before opening the pull request (Note: you can save this as a draft as you copmlete the checklist):
+Confirm and check the following before opening the pull request.
+You can save the pull request as a draft and update this as you complete the checklist.
 
 - [ ] My code follows the project's style guides.
 - [ ] I have linted my code locally and there are no new errors.
@@ -19,7 +22,7 @@ Confirm and check the following before opening the pull request (Note: you can s
 - [ ] I have added tests to cover my changes (if applicable).
 - [ ] I have added the correct assignment label for this change.
 
-## What does this PR do?
+## What does this pull request do?
 
 Add your description of the pull request here
 
@@ -27,7 +30,7 @@ Add your description of the pull request here
 
 Describe any special test procedures to verify your changes
 
-## Notes for Reviewers
+## Notes for reviewers
 
 Describe any special configurations or considerations the reviewers should be aware of.
 If the change in this pull request can be observed just by building the documentation, enter:
@@ -36,4 +39,4 @@ If the change in this pull request can be observed just by building the document
 
 ## Exceptions to Checklist
 
-Describe any exceptions to the checklist and why they should be allowed.
+Describe any exceptions to the checklist and why to allow them.
