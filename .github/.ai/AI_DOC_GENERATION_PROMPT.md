@@ -1,6 +1,7 @@
 # Documentation style for AI
 
 <!-- vale Google.Parens = NO -->
+<!-- vale write-good.Passive = NO -->
 
 Add this to the project knowledge when using AI to when helping create repository documentation.
 
