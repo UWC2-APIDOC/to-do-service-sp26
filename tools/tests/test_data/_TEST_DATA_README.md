@@ -51,6 +51,27 @@ Markdown file with:
 
 ---
 
+### exceptions_in_code_blocks.md
+
+**Purpose:** Test that linter exceptions inside fenced code blocks are ignored
+
+Contains markdown with:
+
+- Real linter exceptions outside code blocks (should be counted)
+- Example linter exceptions inside ``` fenced code blocks (should be ignored)
+- Example linter exceptions inside ```` four-backtick blocks (should be ignored)
+- Both Vale and markdownlint exceptions
+
+**Used by:** `test_list_linter_exceptions.py`
+
+**Expected:**
+
+- 1 Vale exception (outside code blocks)
+- 1 markdownlint exception (outside code blocks)
+- Exceptions inside code blocks are NOT counted
+
+---
+
 ### edge_cases_front_matter.md
 
 **Purpose:** Test front matter parsing edge cases
