@@ -20,6 +20,7 @@ Examples:
     list-linter-exceptions.py docs/*.md --action error
 
 Note: Does not test front matter sections.
+Note: Ignores exceptions inside fenced code blocks (```, ~~~).
 """
 
 import sys
@@ -34,6 +35,9 @@ from doc_test_utils import read_markdown_file, log
 def list_vale_exceptions(content):
     """
     Scan for Vale and markdownlint exception tags.
+    
+    Ignores exception comments inside fenced code blocks to prevent
+    false positives from documentation examples.
     
     Detects:
     - Vale specific rules: <!-- vale RuleName = NO -->
@@ -55,7 +59,7 @@ def list_vale_exceptions(content):
         'markdownlint': []
     }
     
-    # Patterns
+    # Patterns for linter exceptions
     # Vale: <!-- vale RuleName = NO --> (specific rule)
     vale_specific_pattern = r'<!--\s*vale\s+([A-Za-z0-9.]+)\s*=\s*NO\s*-->'
     
@@ -68,9 +72,45 @@ def list_vale_exceptions(content):
     # MarkdownLint: <!-- markdownlint-disable --> (global disable)
     markdown_global_pattern = r'<!--\s*markdownlint-disable\s*-->'
     
+    # Pattern for fenced code blocks
+    # Matches opening: ```lang or ~~~ or ````markdown etc.
+    fence_pattern = r'^(`{3,}|~{3,})'
+    
     lines = content.split('\n')
     
+    # Track code block state
+    in_code_block = False
+    fence_char = None
+    fence_count = 0
+    
     for line_num, line in enumerate(lines, start=1):
+        # Check for code block fences
+        fence_match = re.match(fence_pattern, line)
+        
+        if fence_match:
+            fence = fence_match.group(1)
+            current_char = fence[0]  # ` or ~
+            current_count = len(fence)
+            
+            if not in_code_block:
+                # Opening fence
+                in_code_block = True
+                fence_char = current_char
+                fence_count = current_count
+            elif current_char == fence_char and current_count >= fence_count:
+                # Closing fence (same char, equal or more)
+                in_code_block = False
+                fence_char = None
+                fence_count = 0
+            # If different char or fewer, it's content inside the block
+            
+            # Skip exception detection on fence lines
+            continue
+        
+        # Skip exception detection if inside code block
+        if in_code_block:
+            continue
+        
         # Check for Vale specific rule exceptions
         vale_specific_match = re.search(vale_specific_pattern, line)
         if vale_specific_match:

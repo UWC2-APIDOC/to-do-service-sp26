@@ -303,6 +303,125 @@ def test_with_test_data_files():
     print("  ✓ Test data file tests completed")
 
 
+def test_exceptions_in_code_blocks():
+    """Test that exceptions inside fenced code blocks are ignored."""
+    print("\n" + "="*60)
+    print("TEST: Exceptions in code blocks")
+    print("="*60)
+    
+    # Test with triple backticks
+    content_triple = """# Test file
+
+<!-- vale Google.Parens = NO -->
+
+Real exception above.
+
+Example in code block (should be ignored):
+
+```markdown
+<!-- vale Style.Rule = NO -->
+This is an example
+<!-- vale Style.Rule = YES -->
+```
+
+<!-- markdownlint-disable MD013 -->
+
+Another real exception.
+"""
+    
+    exceptions = list_linter_exceptions.list_vale_exceptions(content_triple)
+    assert len(exceptions['vale']) == 1, f"Expected 1 Vale exception (outside code block), got {len(exceptions['vale'])}"
+    assert exceptions['vale'][0]['line'] == 3, f"Expected line 3, got {exceptions['vale'][0]['line']}"
+    assert len(exceptions['markdownlint']) == 1, f"Expected 1 markdownlint exception, got {len(exceptions['markdownlint'])}"
+    print("  SUCCESS: Triple-backtick code blocks ignored correctly")
+    
+    # Test with four backticks
+    content_quad = """# Test
+
+<!-- vale off -->
+
+Real exception.
+
+````markdown
+<!-- markdownlint-disable MD001 -->
+Example in four-backtick block
+````
+
+<!-- markdownlint-disable MD013 -->
+"""
+    
+    exceptions = list_linter_exceptions.list_vale_exceptions(content_quad)
+    assert len(exceptions['vale']) == 1, f"Expected 1 Vale exception, got {len(exceptions['vale'])}"
+    assert len(exceptions['markdownlint']) == 1, f"Expected 1 markdownlint exception (outside code block), got {len(exceptions['markdownlint'])}"
+    assert exceptions['markdownlint'][0]['line'] == 12, f"Expected line 12, got {exceptions['markdownlint'][0]['line']}"
+    print("  SUCCESS: Four-backtick code blocks ignored correctly")
+    
+    # Test with tilde fences
+    content_tilde = """# Test
+
+<!-- vale Google.Parens = NO -->
+
+~~~markdown
+<!-- vale Style.Rule = NO -->
+In tilde fence
+~~~
+
+End of file.
+"""
+    
+    exceptions = list_linter_exceptions.list_vale_exceptions(content_tilde)
+    assert len(exceptions['vale']) == 1, f"Expected 1 Vale exception (outside tilde fence), got {len(exceptions['vale'])}"
+    assert exceptions['vale'][0]['line'] == 3, f"Expected line 3, got {exceptions['vale'][0]['line']}"
+    print("  SUCCESS: Tilde fences ignored correctly")
+    
+    # Test mixed: multiple code blocks with exceptions outside
+    content_mixed = """# Test
+
+<!-- vale Rule.One = NO -->
+
+First code block:
+```
+<!-- vale Rule.Two = NO -->
+```
+
+<!-- markdownlint-disable MD013 -->
+
+Second code block:
+```
+<!-- markdownlint-disable MD001 -->
+```
+
+<!-- vale Rule.Three = NO -->
+"""
+    
+    exceptions = list_linter_exceptions.list_vale_exceptions(content_mixed)
+    assert len(exceptions['vale']) == 2, f"Expected 2 Vale exceptions (outside blocks), got {len(exceptions['vale'])}"
+    assert exceptions['vale'][0]['line'] == 3, "First Vale exception should be line 3"
+    assert exceptions['vale'][1]['line'] == 17, "Second Vale exception should be line 17"
+    assert len(exceptions['markdownlint']) == 1, f"Expected 1 markdownlint exception (outside blocks), got {len(exceptions['markdownlint'])}"
+    assert exceptions['markdownlint'][0]['line'] == 10, "Markdownlint exception should be line 10"
+    print("  SUCCESS: Multiple code blocks handled correctly")
+    
+    # Test with test data file if it exists
+    test_file = Path(__file__).parent / "test_data" / "exceptions_in_code_blocks.md"
+    if test_file.exists():
+        from doc_test_utils import read_markdown_file
+        content = read_markdown_file(test_file)
+        exceptions = list_linter_exceptions.list_vale_exceptions(content)
+        
+        # Based on our test file:
+        # Line 5: <!-- vale Google.Parens = NO --> (real)
+        # Line 19: <!-- markdownlint-disable MD013 --> (real)
+        # Lines in code blocks should be ignored
+        assert len(exceptions['vale']) == 1, f"Expected 1 Vale exception in test file, got {len(exceptions['vale'])}"
+        assert len(exceptions['markdownlint']) == 1, f"Expected 1 markdownlint exception in test file, got {len(exceptions['markdownlint'])}"
+        print("  SUCCESS: Test data file processed correctly")
+    else:
+        print("  SKIPPED: exceptions_in_code_blocks.md not found")
+    
+    print("  ✓ All code block tests passed")
+
+
 def run_all_tests():
     """Run all test functions."""
     print("\n" + "="*70)
@@ -316,7 +435,8 @@ def run_all_tests():
         test_malformed_exceptions,
         test_empty_file,
         test_exception_line_numbers,
-        test_with_test_data_files
+        test_with_test_data_files,
+        test_exceptions_in_code_blocks
     ]
     
     passed = 0
@@ -344,4 +464,4 @@ def run_all_tests():
 if __name__ == '__main__':
     success = run_all_tests()
     sys.exit(0 if success else 1)
-# End of file tools/tests/test_list_linter_exception.py 
+# End of file tools/tests/test_list_linter_exception.py
