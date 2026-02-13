@@ -38,8 +38,7 @@ subscribers can add new tasks and receive reminders of those tasks.
 
 ## Quickstart
 
-[Add your first task _(coming soon)_](#quickstart) with the
-To-Do Service to see how easy it's to use.
+[Add your first task _(coming soon)_](#quickstart) with the To-Do Service to see how easy it's to use.
 
 ## Tutorials
 
@@ -55,7 +54,7 @@ After your system is ready, these tutorials show you how to perform common tasks
 * [Enroll a new user](tutorials/enroll-a-new-user.md)
 * [Add a new task](tutorials/add-a-new-task.md)
 * [Update a task](tutorials/update-a-task.md)
-* [Delete a task _(coming soon)_](#tutorials)
+* [Update an existing task](tutorials/update-task-put.md)
 
 ## API reference docs
 
