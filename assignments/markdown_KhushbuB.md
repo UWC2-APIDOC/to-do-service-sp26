@@ -5,11 +5,13 @@
 This article lists advantages and limitations of using Markdown language.
 
 ## Advantages of Markdown
+
 - Markdown is **easy** to learn and write.
 - Markdown is **clean** and **readable**, even before rendering.
 - Works _seamlessly with Git_ based workflows.
 
 ## Disadvantages of Markdown
+
 - Markdown lacks the rich semantic formatting.
 
-Refer [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to learn more Markdown elements.
+Refer [Markdown Cheatsheet](https://shorturl.at/71dza) to learn more Markdown elements.
