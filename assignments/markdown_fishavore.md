@@ -1,4 +1,4 @@
-## Advantages and limitations of Markdown
+# Advantages and limitations of Markdown
 
 The [Daring Fireball](https://daringfireball.net/projects/markdown/) website says:
 >Markdown is a text-to-HTML conversion tool for web writers.
