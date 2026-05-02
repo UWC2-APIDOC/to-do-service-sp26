@@ -76,3 +76,4 @@ Updated version of this overview:
 
 * [To-Do Service API—fishavore](overviews/to-do-overview_fishavore.md)
 * [to-do-overview_KhushbuB.md](overviews/to-do-overview_KhushbuB.md)
+* [Search task resource](api/search-tasks-get.md)
