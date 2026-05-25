@@ -20,7 +20,7 @@ Writing your documentation in Markdown has both advantages and disadvantages. Th
 
 4. Different "flavors" of Markdown allow for extended syntax.
 
-If you find you don't enjoy writing in Markdown due to the lack of features or abilities that you can find in more mainstream document editors, then flavored Markdown is for you. "Flavored" Markdown is standard Markdown with special syntax added. For example, GitHub has a GitHub-flavored Markdown that allows strikethroughs, something standard Markdown doesn't support.
+    If you find you don't enjoy writing in Markdown due to the lack of features or abilities that you can find in more mainstream document editors, then flavored Markdown is for you. "Flavored" Markdown is standard Markdown with special syntax added. For example, GitHub has a GitHub-flavored Markdown that allows strikethroughs, something standard Markdown doesn't support.
 
 ## Disadvantages
 
