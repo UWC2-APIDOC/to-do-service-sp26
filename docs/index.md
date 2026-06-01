@@ -38,7 +38,8 @@ subscribers can add new tasks and receive reminders of those tasks.
 
 ## Quickstart
 
-[Add your first task _(coming soon)_](#quickstart) with the To-Do Service.
+[Add your first task _(coming soon)_](#quickstart) with the
+To-Do Service to see how easy it's to use.
 
 ## Tutorials
 
@@ -75,3 +76,4 @@ generally `http://localhost:3000`.
 Updated version of this overview:
 
 * [To-Do Service API—fishavore](overviews/to-do-overview_fishavore.md)
+* [to-do-overview_KhushbuB.md](overviews/to-do-overview_KhushbuB.md)
