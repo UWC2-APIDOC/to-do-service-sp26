@@ -21,8 +21,8 @@ related_pages:
     - /tutorials/update-a-task
 examples: []
 api_endpoints: []
-version: "v1.1"
-last_updated: "2026-05-28"
+version: "v1.2"
+last_updated: "2026-06-01"
 # vale  on
 # markdownlint-enable
 ---
@@ -68,3 +68,9 @@ generally `http://localhost:3000`.
 
 * [user resource](api/user.md)
 * [task resource](api/task.md)
+
+## See also
+
+Updated version of this overview:
+
+* [To-Do Service API—fishavore](overviews/to-do-overview_fishavore.md)
