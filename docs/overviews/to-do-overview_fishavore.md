@@ -3,6 +3,7 @@
 # vale off
 # tags used by just-the-docs theme
 layout: default
+parent: To-Do Service API
 nav_order: 1
 # tags used by AI files
 description: Describes the To-Do Service for a new user
@@ -25,7 +26,7 @@ last_updated: "2026-06-01"
 # markdownlint-enable
 ---
 
-# To-Do Service API
+# To-Do Service API `(fishavore)`
 
 The To-Do Service is an http-based task management service.
 It helps users add tasks and receive reminders of them.
