@@ -4,6 +4,7 @@
 # tags used by just-the-docs theme
 layout: default
 nav_order: 1
+has_children: true
 # tags used by AI files
 description: Describes the To-Do Service for a new user
 topic_type: overview
