@@ -19,10 +19,11 @@ prerequisites: []
 related_pages: 
     - /tutorials/add-a-new-task
     - /tutorials/enroll-a-new-user
+    - /tutorials/update-a-task
 examples: []
 api_endpoints: []
-version: "v1.0"
-last_updated: "2026-03-01"
+version: "v1.1"
+last_updated: "2026-05-28"
 # vale  on
 # markdownlint-enable
 ---
@@ -36,3 +37,4 @@ before you start your first tutorial.
 
 * [Enroll a new user](tutorials/enroll-a-new-user.md)
 * [Add a new task](tutorials/add-a-new-task.md)
+* [Update a task](tutorials/update-a-task.md)
