@@ -1,6 +1,6 @@
 # Using Markdown to Write Documentation
 
-Writing your documentation in Markdown has advantages ***and*** disadvantages.
+Writing your documentation in Markdown has advantages **_and_** disadvantages.
 
 It's important to consider these to make the best choice for your end-user.
 
@@ -14,7 +14,7 @@ It's important to consider these to make the best choice for your end-user.
 
     Most businesses and individuals have already used or have plans to use AI.
 
-    So it's a *vital* consideration when deciding on a method of documentation.
+    So it's a _vital_ consideration when deciding on a method of documentation.
 
 2. Simple documents are often easier to read than complex ones.
 
@@ -28,7 +28,7 @@ It's important to consider these to make the best choice for your end-user.
 
     Sometimes that is how reading an overly complicated document feels.
 
-    While the context *can* be nice, most readers want a straight answer.
+    While the context _can_ be nice, most readers want a straight answer.
 
 3. Modern-day version control is a writer's dream come true.
 
@@ -82,7 +82,7 @@ It's important to consider these to make the best choice for your end-user.
 
 2. You can't use flavored Markdown everywhere.
 
-    There are *hundreds* of different flavors of Markdown.
+    There are _hundreds_ of different flavors of Markdown.
 
     So not every editor or Markdown previewer supports these customizations.
 
