@@ -1,9 +1,4 @@
-# Using Markdown to Write Documentation
-
-<!-- vale Vale.Spelling = NO -->
-<!-- vale Google.Contractions = NO -->
-<!-- vale Google = NO -->
-<!-- vale write-good = NO -->
+# Using Markdown to write documentation
 
 Writing your documentation in Markdown has advantages **_and_** disadvantages.
 
@@ -11,7 +6,7 @@ It's important to consider these to make the best choice for your end-user.
 
 ## Advantages
 
-1. Now more than ever, Markdown proves to be exceptional for a huge reason: AI.
+1. Now more than ever, Markdown proves to be exceptional for one vital reason: AI.
 
     The need for simplicity that resulted in Markdown made it perfect for AI too.
 
@@ -19,25 +14,25 @@ It's important to consider these to make the best choice for your end-user.
 
     Most businesses and individuals have already used or have plans to use AI.
 
-    So it's a _vital_ consideration when deciding on a method of documentation.
+    This makes it a _critical_ consideration when deciding on a method of documentation.
 
 2. Simple documents are often easier to read than complex ones.
 
     Have you ever talked to someone who refused to get to the point?
 
-    Perhaps you were making a sandwich and asked where the tomatoes were.
+    Perhaps you were making a sandwich at a friend's house and asked where the tomatoes were.
 
-    However, instead of answering your question, they began a dramatic tale.
+    Instead of answering your question, your friend began a dramatic tale.
 
     Maybe they recapped the tumultuous grocery store trip to get said tomatoes.
 
-    Sometimes that is how reading an overly complicated document feels.
+    Sometimes that's how reading an overly complicated document feels.
 
     While the context _can_ be nice, most readers want a straight answer.
 
 3. Modern-day version control is a writer's dream come true.
 
-    Version control may be included in many tools now, but it wasn't always.
+    Many tools include version control now, but it wasn't always that way.
 
     If you work at a company that already uses Git, it's helpful to know.
 
@@ -49,7 +44,7 @@ It's important to consider these to make the best choice for your end-user.
 
     Some writers dislike Markdown due to a lack of features or abilities.
 
-    However, "flavored" Markdown may work for those people.
+    That's where "flavored" Markdown comes into play.
 
     "Flavored" Markdown is standard Markdown with special syntax added.
 
@@ -59,12 +54,14 @@ It's important to consider these to make the best choice for your end-user.
 
 ## Disadvantages
 
-1. There are limits to the standard Markdown language.
+1. While Markdown has many advantages, there are limits to the standard Markdown language.
 
-    You can create...
+    For example, you can create
 
     | Tables | Like | This
+
     | --- | --- | ---
+
     | One | Shown | Here
 
     >block quotes,
@@ -75,7 +72,7 @@ It's important to consider these to make the best choice for your end-user.
     - even
     - lists,
 
-    but cannot customize them.
+    but can't customize them.
 
     While this may frustrate some, the beauty of Markdown is the simplicity.
 
@@ -83,34 +80,34 @@ It's important to consider these to make the best choice for your end-user.
 
     Often this isn't a problem for developers and technical end-users.
 
-    But when creating documents with more visual aids, you are limited.
+    But when creating documents with more visual aids, it's limiting.
 
 2. You can't use flavored Markdown everywhere.
 
-    There are _hundreds_ of different flavors of Markdown.
+    To appease many different tastes, there are _hundreds_ of different flavors of Markdown.
 
-    So not every editor or Markdown previewer supports these customizations.
+    Which means not every editor or Markdown previewer supports these customizations.
 
-    Which is fine until it's not.
+    Which is fine.
 
-    If you take a ==flavored== Markdown document...
+    Until it's not.
+
+    For example, if you take a ==flavored== Markdown document
 
     and put it into an editor that doesn't support it, :sad:
 
-    the document will show the broken Markdown tags. ^1
+    the document shows the broken Markdown tags. ^1
 
 ^1 And no, it won't be pretty.
 
-## How Do I Decide?
+## How to decide?
 
-You need to consider your special situation.
+You need to consider your special situation, so ask yourself the following questions:
 
-So, ask yourself the following questions:
-
-1. Who are my end-users?
-2. What is the goal of the document?
+1. Who are the end-users of the document?
+2. What's the goal of the document?
 3. Should there be a lot of videos or interactive elements?
-4. Where will the end-users view this documentation?
+4. Where do the end-users view this documentation?
 5. Does the site or tool the documents live on support different flavors?
 
 If you answer these questions, you be able to decide if it's the best choice.
@@ -127,4 +124,4 @@ Just remember to:
 
 1. weigh your options,
 2. be willing to adjust to different situations,
-3. and enjoy learning a new skill along the way!
+3. and enjoy learning a new skill along the way
