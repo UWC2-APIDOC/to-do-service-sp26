@@ -1,4 +1,0 @@
-$kind: http-request
-url: http://localhost:3000/tasks
-method: GET
-order: 1779752134830
