@@ -41,13 +41,10 @@ topic on the development system you'll use for the tutorial.
 
 ## Enroll a new user
 
-Adding a new task to the service requires that you use the `POST` method to store the details of
-the new [`task`](../api/task.md) resource in the service.
-
 Enrolling a new user in the service requires that you use the `POST` method to store the details of
 a new [`user`](../api/user.md) resource in the service.
 
-To enroll a new user:
+To enroll a new user with Postman:
 
 1. Make sure your local service is running, or start it by using this command, if it's not.
 
@@ -56,8 +53,8 @@ To enroll a new user:
     json-server -w to-do-db-source.json
     ```
 
-1. Open the Postman app on your desktop.
-1. In the Postman app, create a new request with these values:
+2. Open the Postman app on your desktop.
+3. In the Postman app, create a new request with these values:
     * **METHOD**: POST
     * **URL**: `{{base_url}}/users`
     * **Headers**:
@@ -73,8 +70,8 @@ To enroll a new user:
         }
         ```
 
-1. In the Postman app, choose **Send** to make the request.
-1. Watch for the response body, which should look something like this.
+4. In the Postman app, choose **Send** to make the request.
+5. Watch for the response body, which should look something like this.
     Note that the names should be the same as you used in your **Request body** and
     the response should include the new user's `id`.
 
@@ -87,7 +84,26 @@ To enroll a new user:
     }
     ```
 
-After doing this tutorial in Postman, you might like to repeat it in
-your favorite programming language. To do this, adapt the values from
+## Verify the new user
+
+1. In the Postman app, create a new request with these values:
+    * **METHOD**: GET
+    * **URL**: `{{base_url}}/users/5` (replace `5` with the `id` from the response above)
+2. Choose **Send** to make the request.
+3. The service returns the user record:
+
+    ```json
+    {
+        "lastName": "Jones",
+        "firstName": "Jenny",
+        "email": "jen.jones@example.com",
+        "id": 5
+    }
+    ```
+
+## Next steps
+
+Now that you've enrolled a user, try adapting this tutorial to your favorite programming language.
+To do this, adapt the values from
 the tutorial to the properties and arguments that the language uses to
 make REST API calls.
