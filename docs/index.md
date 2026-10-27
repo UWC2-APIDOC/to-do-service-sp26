@@ -52,6 +52,8 @@ You only have to do this one time per development system.
 After your system is ready, these tutorials show you how to perform common tasks.
 
 * [Enroll a new user](tutorials/enroll-a-new-user.md)
+* [Enroll a new user](./tutorials/enroll-a-new-user.md)
+* [another link](./before-you-start-a-tutorial.md)
 * [Add a new task](tutorials/add-a-new-task.md)
 * [Update a task](tutorials/update-a-task.md)
 * [Update an existing task](tutorials/update-task-put.md)
