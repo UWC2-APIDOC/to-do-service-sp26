@@ -1,0 +1,13 @@
+#H1 Markdown pros and cons
+Here is a lits of pros and cons to using Markdown to write your API documentation.
+
+##H2 Markdown pros
+Bullet list
+* Markdown is lightweight.
+* Markdown is easy to begin using.
+* Markdown is supported on GitHub.
+
+##H2 Markdown cons
+Bullet list
+* Not _all_ versions are interoperable.
+* User **must**/ know which version is supported by the tools they use.
